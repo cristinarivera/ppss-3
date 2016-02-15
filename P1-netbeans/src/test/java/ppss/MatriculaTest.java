@@ -12,7 +12,7 @@ public class MatriculaTest {
     Matricula mat= new Matricula();
 
     @Test
-    public void testCalculaTasaMatricula() {
+    public void testCalculaTasaMatriculaT1() { // camino azul
         edad = 23;
         familiaNumerosa = true;
         repetidor = true;
@@ -21,6 +21,72 @@ public class MatriculaTest {
         //el tercer parámetro del método Assert.assertEquals es necesario si estamos comparando "floats"
         //en este caso el método devuelve cierto si:
         //resultadoEsperado = resultadoReal +/- 0.002
-        assertEquals(resultadoEsperado, resultadoReal,0.002f);
+        assertEquals(resultadoEsperado, resultadoReal, 0.002f);
+    }
+    
+    
+    @Test
+    public void testCalculaTasaMatriculaT2() { // camino verde
+        edad = 23;
+        familiaNumerosa = false;
+        repetidor = true;
+        resultadoEsperado = 2000.00f;
+        resultadoReal = mat.calculaTasaMatricula(edad,familiaNumerosa,repetidor);
+        //el tercer parámetro del método Assert.assertEquals es necesario si estamos comparando "floats"
+        //en este caso el método devuelve cierto si:
+        //resultadoEsperado = resultadoReal +/- 0.002
+        assertEquals(resultadoEsperado, resultadoReal, 0.002f);
+    }
+    
+    @Test
+    public void testCalculaTasaMatriculaT3() { // camino lápiz
+        edad = 23;
+        familiaNumerosa = false;
+        repetidor = false;
+        resultadoEsperado = 500.00f;
+        resultadoReal = mat.calculaTasaMatricula(edad,familiaNumerosa,repetidor);
+        //el tercer parámetro del método Assert.assertEquals es necesario si estamos comparando "floats"
+        //en este caso el método devuelve cierto si:
+        //resultadoEsperado = resultadoReal +/- 0.002
+        assertEquals(resultadoEsperado, resultadoReal, 0.002f);
+    }
+    
+    @Test
+    public void testCalculaTasaMatriculaT4() { // camino malva
+        edad = 70;
+        familiaNumerosa = true;
+        repetidor = true;
+        resultadoEsperado = 250.00f;
+        resultadoReal = mat.calculaTasaMatricula(edad,familiaNumerosa,repetidor);
+        //el tercer parámetro del método Assert.assertEquals es necesario si estamos comparando "floats"
+        //en este caso el método devuelve cierto si:
+        //resultadoEsperado = resultadoReal +/- 0.002
+        assertEquals(resultadoEsperado, resultadoReal, 0.002f);
+    }
+    
+    @Test
+    public void testCalculaTasaMatriculaT5() { // camino rosa
+        edad = 60;
+        familiaNumerosa = false;
+        repetidor = true;
+        resultadoEsperado = 400.00f;
+        resultadoReal = mat.calculaTasaMatricula(edad,familiaNumerosa,repetidor);
+        //el tercer parámetro del método Assert.assertEquals es necesario si estamos comparando "floats"
+        //en este caso el método devuelve cierto si:
+        //resultadoEsperado = resultadoReal +/- 0.002
+        assertEquals(resultadoEsperado, resultadoReal, 0.002f);
+    }
+    
+    @Test
+    public void testCalculaTasaMatriculaT6() { // camino 
+        edad = 60;
+        familiaNumerosa = true;
+        repetidor = true;
+        resultadoEsperado = 150.00f;
+        resultadoReal = mat.calculaTasaMatricula(edad,familiaNumerosa,repetidor);
+        //el tercer parámetro del método Assert.assertEquals es necesario si estamos comparando "floats"
+        //en este caso el método devuelve cierto si:
+        //resultadoEsperado = resultadoReal +/- 0.002
+        assertEquals(resultadoEsperado, resultadoReal, 0.002f);
     }
 }

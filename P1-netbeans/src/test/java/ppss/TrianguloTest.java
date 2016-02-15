@@ -35,7 +35,7 @@ public class TrianguloTest {
         a = 1;
         b = 2;
         c = 0;
-        resultadoEsperado = "Valor c fuera del rango permitido";
+        resultadoEsperado = "El valor c sobrepasa el rango permitido";
         resultadoReal = tri.tipo_triangulo(a,b,c);
         assertEquals(resultadoEsperado, resultadoReal);
     }
