@@ -12,7 +12,7 @@ public class MatriculaTest {
     Matricula mat= new Matricula();
 
     @Test
-    public void testCalculaTasaMatriculaT1() { // camino azul
+    public void testCalculaTasaMatriculaC1() { // camino azul
         edad = 23;
         familiaNumerosa = true;
         repetidor = true;
@@ -26,7 +26,7 @@ public class MatriculaTest {
     
     
     @Test
-    public void testCalculaTasaMatriculaT2() { // camino verde
+    public void testCalculaTasaMatriculaC2() { // camino verde
         edad = 23;
         familiaNumerosa = false;
         repetidor = true;
@@ -39,7 +39,7 @@ public class MatriculaTest {
     }
     
     @Test
-    public void testCalculaTasaMatriculaT3() { // camino lápiz
+    public void testCalculaTasaMatriculaC3() { // camino lápiz
         edad = 23;
         familiaNumerosa = false;
         repetidor = false;
@@ -52,7 +52,7 @@ public class MatriculaTest {
     }
     
     @Test
-    public void testCalculaTasaMatriculaT4() { // camino malva
+    public void testCalculaTasaMatriculaC4() { // camino malva
         edad = 70;
         familiaNumerosa = true;
         repetidor = true;
@@ -65,7 +65,7 @@ public class MatriculaTest {
     }
     
     @Test
-    public void testCalculaTasaMatriculaT5() { // camino rosa
+    public void testCalculaTasaMatriculaC5() { // camino rosa
         edad = 60;
         familiaNumerosa = false;
         repetidor = true;
@@ -78,7 +78,7 @@ public class MatriculaTest {
     }
     
     @Test
-    public void testCalculaTasaMatriculaT6() { // camino 
+    public void testCalculaTasaMatriculaC6() { // camino 
         edad = 60;
         familiaNumerosa = true;
         repetidor = true;
