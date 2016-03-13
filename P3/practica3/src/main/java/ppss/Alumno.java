@@ -12,10 +12,11 @@ import java.util.regex.Pattern;
  *
  * @author Cristina Rivera Baydal ( crb13@alu.ua.es )
  */
-public class ValidaDNI {
-    
+public class Alumno {
+    public Alumno(){
+    }
     public boolean validaNif(String nif) {
-        if(nif.length()!=9 || nif == null) {
+        if(nif.length()!=9) {
             return false;
         }
 
@@ -43,8 +44,6 @@ public class ValidaDNI {
 
         //if(!matcher.matches()) System.out.println("matches is false     " + nif);
         return matcher.matches() && letra==letraEsperada;
-}
-    
-    
-    
+
+    }   
 }

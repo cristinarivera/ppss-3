@@ -11,13 +11,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.experimental.categories.Category;
 
 /**
  *
  * @author ppss
  */
+@Category(TestSinParametros.class)
 public class TestMatriculaSinParametros {
     
     int edad;

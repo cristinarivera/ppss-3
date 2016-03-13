@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-TestSinParametros</actionName>
+            <displayName>TestSinParametros</displayName>
+            <goals>
+                <goal>test</goal>
+            </goals>
+            <properties>
+                <groups>ppss.TestSinParametros</groups>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-TestConParametros</actionName>
+            <displayName>TestConParametros</displayName>
+            <goals>
+                <goal>test</goal>
+            </goals>
+            <properties>
+                <groups>ppss.TestConParametros</groups>
+            </properties>
+        </action>
+    </actions>

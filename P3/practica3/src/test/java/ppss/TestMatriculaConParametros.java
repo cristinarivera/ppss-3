@@ -15,12 +15,15 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.experimental.categories.Category;
+
 
 /**
  *
- * @author ppss
+ * @author Cristina Rivera Baydal ( crb13@alu.ua.es )
  */
 @RunWith(Parameterized.class)
+@Category(TestConParametros.class)
 public class TestMatriculaConParametros {
     @Parameterized.Parameters(name = "Caso C{index}: calculaTasaMatricula({0}, {1}, {2}) = {3}")
     public static Collection<Object[]> data(){
