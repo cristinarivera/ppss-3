@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ppss;
-
-import java.util.Calendar;
+package ppss.ejercicio2;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,7 +11,7 @@ import static org.junit.Assert.*;
  *
  * @author ppss
  */
-public class TestGestorLlamadas extends GestorLlamadas{
+public class TestGestorLlamadas extends Calendario {
     double resultadoEsperado;
     double resultadoReal;
     int minutos;
