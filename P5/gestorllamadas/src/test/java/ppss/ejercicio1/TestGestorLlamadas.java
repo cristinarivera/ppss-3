@@ -15,23 +15,16 @@ public class TestGestorLlamadas extends GestorLlamadas{
     double resultadoEsperado;
     double resultadoReal;
     int minutos;
-    GestorLlamadas gl = new GestorLlamadas();
-    private int hora; 
-    @Override
-    public int getHoraActual() {
-        return hora;
-    }
-    public void setHoraActual(int h){
-        this.hora = h;
-    }
+    TestableGestorLlamadas tgl = new TestableGestorLlamadas();
+    
     @Test
     public void TestCalculaConsumoC1() {
         System.out.println("Test C1");
         minutos = 10;
         resultadoEsperado = 208.0;
-        setHoraActual(15);
+        tgl.setHoraActual(15);
         System.out.println("hora: " + getHoraActual());
-        resultadoReal = gl.calculaConsumo(minutos);
+        resultadoReal = tgl.calculaConsumo(minutos);
         System.out.println("resultadoReal: " + resultadoReal);
         assertEquals(resultadoEsperado, resultadoReal, 0.01);
         
@@ -41,9 +34,9 @@ public class TestGestorLlamadas extends GestorLlamadas{
         System.out.println("Test C2");
         minutos = 10;
         resultadoEsperado = 105.0;
-        setHoraActual(22);
+        tgl.setHoraActual(22);
         System.out.println("hora: " + getHoraActual());
-        resultadoReal = gl.calculaConsumo(minutos);
+        resultadoReal = tgl.calculaConsumo(minutos);
         System.out.println("resultadoReal: " + resultadoReal);
         assertEquals(resultadoEsperado, resultadoReal, 0.01);
     }

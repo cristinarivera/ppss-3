@@ -18,47 +18,19 @@ import static org.junit.Assert.*;
  *
  * @author ppss
  */
-public class GestorLlamadasMockTest extends GestorLlamadas {
+public class GestorLlamadasMockTest {
     
     public GestorLlamadasMockTest() {
     }
     
     double resultadoEsperado;
     double resultadoReal;
-    GestorLlamadas gl = new GestorLlamadas();
-    private Calendario cal;
-    
-    @Override
-    public Calendario getCalendario() {
-        return cal;
-    }
-    
-    public void setCalendario(Calendario c)
-    {
-        cal = c;
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+        
     @Test
     public void TestCalculaConsumoC1() throws IOException
     {
         Calendario mock = EasyMock.createMock(Calendario.class);
-        GestorLlamadasMockTest tgl = new GestorLlamadasMockTest();
+        TestableGestorLlamadas tgl = new TestableGestorLlamadas();
         EasyMock.expect(mock.getHoraActual()).andReturn(15);
         tgl.setCalendario(mock);
         EasyMock.replay(mock);
@@ -72,7 +44,7 @@ public class GestorLlamadasMockTest extends GestorLlamadas {
     public void TestCalculaConsumoC2() throws IOException
     {
         Calendario mock = EasyMock.createMock(Calendario.class);
-        GestorLlamadasMockTest tgl = new GestorLlamadasMockTest();
+        TestableGestorLlamadas tgl = new TestableGestorLlamadas();
         EasyMock.expect(mock.getHoraActual()).andReturn(22);
         tgl.setCalendario(mock);
         EasyMock.replay(mock);
