@@ -1,3 +1,4 @@
 # ignore Maven generated target folders 
 target
 /P6/gestorllamadas/nbproject/
+/P5/reserva/nbproject/
