@@ -43,7 +43,7 @@ public class TestReserva {
         IOperacionFactoria io = new IOperacionFactoria();
         tr.setCompruebaPermisos(true);
         to.setException(""); // no tiene que lanzar ninguna excepción
-        //io.setOperacion(to);
+        io.setOperacion(to);
         String[] isbns = {"11111", "22222"};
         try{
             tr.realizaReserva("ppss", "ppss", "Luis", isbns);
