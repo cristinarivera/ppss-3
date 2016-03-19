@@ -17,7 +17,7 @@ public class Operacion implements IOperacionBO{
 
     @Override
     public void operacionReserva(String socio, String isbn) throws IsbnInvalidoException, JDBCException, SocioInvalidoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet***"); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

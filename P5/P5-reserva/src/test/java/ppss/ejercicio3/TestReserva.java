@@ -5,10 +5,6 @@
  */
 package ppss.ejercicio3;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import ppss.ejercicio3.excepciones.ReservaException;
@@ -23,7 +19,7 @@ public class TestReserva {
     }
     
     @Test
-    public void TestReservaC1() throws Exception{
+    public void TestReservaC1() throws Exception {
         TestableReserva tr = new TestableReserva();//
         OperacionStub to = new OperacionStub();
         IOperacionFactoria io = new IOperacionFactoria();
@@ -47,6 +43,7 @@ public class TestReserva {
         IOperacionFactoria io = new IOperacionFactoria();
         tr.setCompruebaPermisos(true);
         to.setException(""); // no tiene que lanzar ninguna excepción
+        //io.setOperacion(to);
         String[] isbns = {"11111", "22222"};
         try{
             tr.realizaReserva("ppss", "ppss", "Luis", isbns);
@@ -56,17 +53,21 @@ public class TestReserva {
             assertEquals(resultadoEsperado, resultadoReal);
         }
     }
+    
     @Test
     public void TestReservaC3() throws Exception{
-        TestableReserva tr = new TestableReserva();
-        OperacionStub to = new OperacionStub();
-        tr.setCompruebaPermisos(true);
-        to.setException("isbn"); // no tiene que lanzar ninguna excepción
-        resultadoEsperado = "ISBN invalido:33333";
+        
+        TestableReserva tr3 = new TestableReserva();
+        tr3.setCompruebaPermisos(true);        
+        OperacionStub to3 = new OperacionStub();        
+        to3.setException("isbn"); 
+        IOperacionFactoria io3 = new IOperacionFactoria();
+        io3.setOperacion(to3);
+        resultadoEsperado = "ISBN invalido:33333; ";
         String[] isbns = new String[1];        
         isbns[0] = "33333";
         try{
-            tr.realizaReserva("ppss", "ppss", "Luis", isbns);
+            tr3.realizaReserva("ppss", "ppss", "Luis", isbns);
         }catch(ReservaException e){
             resultadoReal = e.getMessage();
             assertEquals(resultadoEsperado, resultadoReal);
@@ -78,7 +79,9 @@ public class TestReserva {
         OperacionStub to = new OperacionStub();
         tr.setCompruebaPermisos(true);
         to.setException("socio"); 
-        resultadoEsperado = "SOCIO invalido";
+        IOperacionFactoria io = new IOperacionFactoria();
+        io.setOperacion(to);
+        resultadoEsperado = "SOCIO invalido; ";
         String[] isbns = new String[1];        
         isbns[0] = "11111";
         try{
@@ -94,7 +97,9 @@ public class TestReserva {
         OperacionStub to = new OperacionStub();
         tr.setCompruebaPermisos(true);
         to.setException("jdbc"); 
-        resultadoEsperado = "CONEXION invalida";
+        IOperacionFactoria io = new IOperacionFactoria();
+        io.setOperacion(to);
+        resultadoEsperado = "CONEXION invalida; ";
         String[] isbns = new String[1];        
         isbns[0] = "11111";
         try{
