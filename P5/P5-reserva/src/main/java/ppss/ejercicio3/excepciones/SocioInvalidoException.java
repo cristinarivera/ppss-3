@@ -10,13 +10,5 @@ package ppss.ejercicio3.excepciones;
  * @author Cristina Rivera Baydal ( crb13@alu.ua.es )
  */
 public class SocioInvalidoException extends Exception {
-    /**
-     * Constructs an instance of <code>JDBCException</code> with the specified
-     * detail message.
-     *
-     * @param msg the detail message.
-     */
-    public SocioInvalidoException(String msg) {
-        super(msg);
-    }
+    
 }

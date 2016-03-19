@@ -18,59 +18,42 @@ import ppss.ejercicio3.excepciones.ReservaException;
  * @author Cristina Rivera Baydal ( crb13@alu.ua.es )
  */
 public class TestReserva {
-    private Exception resultadoEsperado, resultadoReal;
+    private String resultadoEsperado, resultadoReal;
     public TestReserva() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {        
-        
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void TestReservaC1() throws Exception{
         TestableReserva tr = new TestableReserva();//
         OperacionStub to = new OperacionStub();
         IOperacionFactoria io = new IOperacionFactoria();
         tr.setCompruebaPermisos(false); //
-        to.setOperacion(""); // no tiene que lanzar ninguna excepción específica
-        resultadoEsperado = new ReservaException("ERROR de permisos;");
-        
-        io.setOperacion();
-        String[] isbns = new String[1];        
-        isbns[0] = "11111";
+        to.setException(null); // no tiene que lanzar ninguna excepción específica
+        io.setOperacion(to);
+        String[] isbns = {"11111"};
         try{
             tr.realizaReserva("xxxx", "xxxx", "Luis", isbns);
         }catch(ReservaException e){
-            resultadoEsperado.equals(e);
+            resultadoEsperado = "ERROR de permisos; ";
+            resultadoReal = e.getMessage();
+            assertEquals(resultadoEsperado, resultadoReal);
         }
     }
+    
     @Test
     public void TestReservaC2() throws Exception{
         TestableReserva tr = new TestableReserva();
         OperacionStub to = new OperacionStub();
+        IOperacionFactoria io = new IOperacionFactoria();
         tr.setCompruebaPermisos(true);
-        to.setOperacion(""); // no tiene que lanzar ninguna excepción
-        resultadoEsperado = new ReservaException("");
-        String[] isbns = new String[2];        
-        isbns[0] = "11111";
-        isbns[1] = "22222";
+        to.setException(""); // no tiene que lanzar ninguna excepción
+        String[] isbns = {"11111", "22222"};
         try{
             tr.realizaReserva("ppss", "ppss", "Luis", isbns);
         }catch(ReservaException e){
-            resultadoEsperado.equals(e);
+            resultadoEsperado = "";
+            resultadoReal = e.getMessage();
+            assertEquals(resultadoEsperado, resultadoReal);
         }
     }
     @Test
@@ -78,14 +61,15 @@ public class TestReserva {
         TestableReserva tr = new TestableReserva();
         OperacionStub to = new OperacionStub();
         tr.setCompruebaPermisos(true);
-        to.setOperacion("isbn"); // no tiene que lanzar ninguna excepción
-        resultadoEsperado = new ReservaException("ISBN invalido:33333");
+        to.setException("isbn"); // no tiene que lanzar ninguna excepción
+        resultadoEsperado = "ISBN invalido:33333";
         String[] isbns = new String[1];        
         isbns[0] = "33333";
         try{
             tr.realizaReserva("ppss", "ppss", "Luis", isbns);
         }catch(ReservaException e){
-            resultadoEsperado.equals(e);
+            resultadoReal = e.getMessage();
+            assertEquals(resultadoEsperado, resultadoReal);
         }
     }
     @Test
@@ -93,14 +77,15 @@ public class TestReserva {
         TestableReserva tr = new TestableReserva();
         OperacionStub to = new OperacionStub();
         tr.setCompruebaPermisos(true);
-        to.setOperacion("socio"); 
-        resultadoEsperado = new ReservaException("SOCIO invalido");
+        to.setException("socio"); 
+        resultadoEsperado = "SOCIO invalido";
         String[] isbns = new String[1];        
         isbns[0] = "11111";
         try{
             tr.realizaReserva("ppss", "ppss", "Pepe", isbns);
         }catch(ReservaException e){
-            resultadoEsperado.equals(e);
+            resultadoReal = e.getMessage();
+            assertEquals(resultadoEsperado, resultadoReal);
         }
     }
     @Test
@@ -108,14 +93,16 @@ public class TestReserva {
         TestableReserva tr = new TestableReserva();
         OperacionStub to = new OperacionStub();
         tr.setCompruebaPermisos(true);
-        to.setOperacion("jdbc"); 
-        resultadoEsperado = new ReservaException("CONEXION invalida");
+        to.setException("jdbc"); 
+        resultadoEsperado = "CONEXION invalida";
         String[] isbns = new String[1];        
         isbns[0] = "11111";
         try{
             tr.realizaReserva("ppss", "ppss", "Luis", isbns);
         }catch(ReservaException e){
-            resultadoEsperado.equals(e);
+            resultadoReal = e.getMessage();
+            assertEquals(resultadoEsperado, resultadoReal);
         }
     }
+
 }

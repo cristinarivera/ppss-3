@@ -13,25 +13,26 @@ import ppss.ejercicio3.excepciones.SocioInvalidoException;
  *
  * @author Cristina Rivera Baydal ( crb13@alu.ua.es )
  */
-public class OperacionStub implements IOperacionBO {
+public class OperacionStub extends Operacion {
      private String excepcion;
      
      @Override
      public void operacionReserva(String socio, String isbn) 
             throws IsbnInvalidoException, JDBCException, SocioInvalidoException{
+         
          if (excepcion != null) switch (excepcion) {
              case "isbn":
-                 throw new IsbnInvalidoException(isbn);         
+                 throw new IsbnInvalidoException();         
              case "jdbc":
-                 throw new JDBCException(socio);
+                 throw new JDBCException();
              case "socio":
-                 throw new SocioInvalidoException(socio);
+                 throw new SocioInvalidoException();
              default:
                  break;
          }
     }
      
-    public void setOperacion(String s){
+    public void setException(String s){
         excepcion = s;
     }
 }
