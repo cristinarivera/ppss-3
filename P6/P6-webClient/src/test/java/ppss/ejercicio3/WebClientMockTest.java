@@ -5,15 +5,17 @@
  */
 package ppss.ejercicio3;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.easymock.EasyMock;
-import org.junit.After;
-import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -21,37 +23,40 @@ import static org.junit.Assert.*;
  */
 public class WebClientMockTest {
     private String resultadoEsperado, resultadoReal;
+    HttpURLConnection mockHttpURLConnection;
+    WebClient mockWebClient;
+    URL url;
     public WebClientMockTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+    public void setUp() throws MalformedURLException {        
+        url = new URL("http://www.ua.es");
+        mockWebClient = EasyMock.createMockBuilder(WebClient.class).addMockedMethod("createHttpURLConnection").createMock();
+        mockHttpURLConnection = EasyMock.createMock(HttpURLConnection.class);
     }
 
     @Test
-    public void TestGetContentC1() throws MalformedURLException {
-        URL url = new URL("http://www.ua.es");
-        StringBuilder sbMock = EasyMock.createMockBuilder(StringBuilder.class).addMockedMethod("toString").createMock();
-        EasyMock.expect(sbMock.toString()).andReturn("Funciona");
-        StringBuilderFactoria sbf = new StringBuilderFactoria();
-        sbf.setStringBuilder(sbMock);
-        EasyMock.replay(sbMock);
-        WebClient webc = new WebClient();
+    public void TestGetContentC1() throws IOException {
+        EasyMock.expect(mockWebClient.createHttpURLConnection(url)).andReturn(mockHttpURLConnection);        
+        InputStream t = new ByteArrayInputStream("Funciona".getBytes());
+        EasyMock.expect(mockHttpURLConnection.getInputStream()).andReturn(t);
+        EasyMock.replay(mockHttpURLConnection);
+        EasyMock.replay(mockWebClient);
         resultadoEsperado = "Funciona";
-        resultadoReal = webc.getContent(url);
+        resultadoReal = mockWebClient.getContent(url);
         assertEquals(resultadoEsperado, resultadoReal);
-        EasyMock.verify(sbMock);
+        EasyMock.verify(mockHttpURLConnection);
+        EasyMock.verify(mockWebClient);
+    }
+    @Test
+    public void TestGetContentC2() throws MalformedURLException, IOException {
+        EasyMock.expect(mockWebClient.createHttpURLConnection(url)).andReturn(mockHttpURLConnection);
+        EasyMock.expect(mockHttpURLConnection.getInputStream());
+        EasyMock.replay(mockWebClient);
+        EasyMock.replay(mockHttpURLConnection);
+        assertNull(mockWebClient.getContent(url));
+        EasyMock.verify(mockWebClient);
+        EasyMock.verify(mockHttpURLConnection);
     }
 }

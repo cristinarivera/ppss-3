@@ -16,7 +16,7 @@ import java.net.URL;
  */
 public class WebClient {
     public String getContent(URL url) {
-        StringBuilder content = StringBuilderFactoria.create();
+        StringBuilder content = new StringBuilder();
         try {
             //creamos una conexión http
             HttpURLConnection connection = createHttpURLConnection(url);

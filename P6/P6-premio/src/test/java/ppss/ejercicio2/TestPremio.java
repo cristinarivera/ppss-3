@@ -6,10 +6,6 @@
 package ppss.ejercicio2;
 
 import org.easymock.EasyMock;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,32 +15,34 @@ import static org.junit.Assert.*;
  */
 public class TestPremio {
     private String resultadoEsperado, resultadoReal;
+    Premio mockPremio;
+    ClienteWebService mockCliente;
     public TestPremio() {
     }
     
     @Test
     public void TestPremioC1() throws ClienteWebServiceException {
-        TestablePremio premio = new TestablePremio();
-        ClienteWebService mockCliente = EasyMock.createMock(ClienteWebService.class);
+        mockCliente = EasyMock.createMock(ClienteWebService.class);
+        mockPremio = EasyMock.createMockBuilder(Premio.class).addMockedMethod("generaNumero").createMock();
+        mockPremio.cliente = mockCliente;
         EasyMock.expect(mockCliente.obtenerPremio()).andReturn("pez de goma");
-        premio.setNumero(0.01f);
-        premio.setCliente(mockCliente);
+        EasyMock.expect(mockPremio.generaNumero()).andReturn(0.01f);
         EasyMock.replay(mockCliente);
+        EasyMock.replay(mockPremio);
         resultadoEsperado = "Premiado con pez de goma";
-        resultadoReal = premio.compruebaPremio();
+        resultadoReal = mockPremio.compruebaPremio();
         assertEquals(resultadoEsperado, resultadoReal);
         EasyMock.verify(mockCliente);
     }
     @Test
     public void TestPremioC2() throws ClienteWebServiceException {
-        TestablePremio premio = new TestablePremio();
-        ClienteWebService mockCliente = EasyMock.createMock(ClienteWebService.class);
+        mockCliente = EasyMock.createMock(ClienteWebService.class);
+        mockPremio = EasyMock.createMockBuilder(Premio.class).addMockedMethod("generaNumero").createMock();
+        mockPremio.cliente = mockCliente;
         EasyMock.expect(mockCliente.obtenerPremio()).andThrow(new ClienteWebServiceException());
-        premio.setNumero(0.01f);
-        premio.setCliente(mockCliente);
         EasyMock.replay(mockCliente);
         resultadoEsperado = "Premiado";
-        resultadoReal = premio.compruebaPremio();
+        resultadoReal = mockPremio.compruebaPremio();
         assertEquals(resultadoEsperado, resultadoReal);
         EasyMock.verify(mockCliente);
     }
