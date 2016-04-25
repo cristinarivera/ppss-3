@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/jpetstore/actions/Catalog.action" />
+<title>test-compra-old-user</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">test-compra-old-user</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/jpetstore/actions/Catalog.action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign In</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Register Now!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=username</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=repeatedPassword</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.firstName</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.lastName</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.email</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.phone</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.address1</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.address2</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.city</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.state</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.zip</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=account.country</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=newAccount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=area[alt=&quot;Reptiles&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h2</td>
+	<td>Reptiles</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='Catalog']/table/tbody/tr[2]/td[2]</td>
+	<td>Iguana</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=RP-LI-02</td>
+	<td>RP-LI-02</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=RP-LI-02</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=EST-13</td>
+	<td>EST-13</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='Catalog']/table/tbody/tr[2]/td[3]</td>
+	<td>Green Adult Iguana</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add to Cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=EST-13</td>
+	<td>500</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=updateCartQuantities</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='Cart']/form/table/tbody/tr[3]/td</td>
+	<td>Sub Total: $9.250,00</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Return to Main Menu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='SidebarContent']/a[4]/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=RP-LI-02</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EST-13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['textStock'].match(/\d+\.?\d*/g)</td>
+	<td>stock</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${stock}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

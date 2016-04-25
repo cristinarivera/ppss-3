@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <customer id="1"
+        firstname="John"
+        lastname="Smith"
+        street="1 Main Street"
+        city="Anycity" />
+    <user id="1"
+        login="root"
+        password="ppss"/>
+</dataset>

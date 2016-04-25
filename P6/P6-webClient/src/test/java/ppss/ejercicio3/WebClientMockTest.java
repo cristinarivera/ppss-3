@@ -37,7 +37,7 @@ public class WebClientMockTest {
     }
 
     @Test
-    public void TestGetContentC1() throws IOException {
+    public void GetContentTestC1() throws IOException {
         EasyMock.expect(mockWebClient.createHttpURLConnection(url)).andReturn(mockHttpURLConnection);        
         InputStream t = new ByteArrayInputStream("Funciona".getBytes());
         EasyMock.expect(mockHttpURLConnection.getInputStream()).andReturn(t);
@@ -50,7 +50,7 @@ public class WebClientMockTest {
         EasyMock.verify(mockWebClient);
     }
     @Test
-    public void TestGetContentC2() throws MalformedURLException, IOException {
+    public void GetContentTestC2() throws MalformedURLException, IOException {
         EasyMock.expect(mockWebClient.createHttpURLConnection(url)).andReturn(mockHttpURLConnection);
         EasyMock.expect(mockHttpURLConnection.getInputStream());
         EasyMock.replay(mockWebClient);
