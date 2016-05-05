@@ -5,8 +5,6 @@
  */
 package ejercicio2.pageFactory;
 
-import ejercicio1.pageFactory.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +18,7 @@ public class ManagerPage {
     WebDriver driver;
     @FindBy(xpath="//table//tr[@class='heading3']") WebElement homePageUserName;
     @FindBy(linkText="New Customer") WebElement newCustomer;
+    @FindBy(linkText="Delete Customer") WebElement deleteCustomer;
     @FindBy(linkText="Log out") WebElement logOut;
     
     public ManagerPage(WebDriver driver){
@@ -31,5 +30,9 @@ public class ManagerPage {
     public NewCustomerPage newCustomer(){
         newCustomer.click();
         return PageFactory.initElements(driver, NewCustomerPage.class);
+    }
+    public DeleteCustomerPage deleteCustomer(){
+        deleteCustomer.click();
+        return PageFactory.initElements(driver, DeleteCustomerPage.class);
     }
 }

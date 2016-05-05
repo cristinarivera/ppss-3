@@ -5,7 +5,6 @@
  */
 package ejercicio2.pageFactory;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,6 +29,8 @@ public class NewCustomerPage {
     @FindBy(name="emailid") WebElement email;
     @FindBy(name="password") WebElement password;
     @FindBy(xpath="/html/body/table/tbody/tr/td/table/tbody/tr[14]/td[2]/input[1]") WebElement submit; //también como los anteriores
+    
+    @FindBy(xpath="/html/body/table/tbody/tr/td/table/tbody/tr[14]/td/a") WebElement continuar;  
     
         
     public NewCustomerPage(WebDriver driver){
@@ -62,5 +63,9 @@ public class NewCustomerPage {
     }
     public String getHomePageDashboardUserName(){
         return homePageUserName.getText();
+    }
+    
+    public void continuar(){
+        continuar.click();
     }
 }
