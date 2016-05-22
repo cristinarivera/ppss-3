@@ -48,6 +48,7 @@ public class CustomerFactoryIT {
     databaseTester.onSetup();
 
     _customerFactory = CustomerFactory.getInstance();
+    
   }
 	
   @Test

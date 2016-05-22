@@ -68,7 +68,7 @@
             <!-- Configuración común a todas las ejecuciones -->
             <configuration>
                 <driver>com.mysql.jdbc.Driver</driver>
-                <url>jdbc:mysql://localhost:3306/DBUNIT</url>
+                <url>jdbc:mysql://localhost:3306/matriculacion</url>
                 <username>root</username>
                 <password>ppss</password>
             </configuration>
